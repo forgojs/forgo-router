@@ -2,6 +2,12 @@
 
 A simple router for Forgo. Just about 1KB gzipped.
 
+## Installation
+
+```sh
+npm i forgo-router
+```
+
 ## Basic Example
 
 It's fairly straight forward to use:
