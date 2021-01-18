@@ -20,20 +20,19 @@ export async function goBack(steps = -1): Promise<void> {
 }
 
 export async function updateRoute(): Promise<void> {
-  const url = window.location.href;
-  rerender(element);
+  rerender(routerRenderArgs.element);
 }
 
 export type RouterProps = {
   children?: ForgoNode[];
 };
 
-let element: ForgoElementArg;
+let routerRenderArgs: ForgoRenderArgs;
 
 export function Router(props: RouterProps) {
   return {
     render(props: RouterProps, args: ForgoRenderArgs) {
-      element = args.element;
+      routerRenderArgs = args;
       return <div>{props.children}</div>;
     },
   };
