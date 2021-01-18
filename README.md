@@ -104,14 +104,13 @@ type MatchResult = {
 - remainingPath refers to the part which follows the matched pattern.
 - params is an object containing captured parameters.
 
-
 ## A Complete Example
 
-Here's a more complete example.
+Here's a more complete example. You can [try it on CodeSandbox](https://codesandbox.io/s/forgo-router-typescript-px4sg).
 
 ```tsx
 import { mount } from "forgo";
-import { matchUrl, matchExactUrl, Link } from "forgo-router";
+import { Router, matchUrl, matchExactUrl, Link } from "forgo-router";
 
 type Customer = {
   id: number;
@@ -129,12 +128,12 @@ function App() {
   return {
     render() {
       return (
-        <div>
+        <Router>
           <Link href="/">Home Page</Link>
           {matchExactUrl("/", () => <Home />) ||
             matchUrl("/customers", (match) => <Customers />) ||
             matchUrl("/about", () => <AboutPage />)}
-        </div>
+        </Router>
       );
     },
   };
