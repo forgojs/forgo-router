@@ -82,7 +82,7 @@ function createClickHandler(url: string) {
 export type MatchResult = {
   matchedPath: string;
   params: { [key: string]: string };
-  currentPath: string;
+  remainingPath: string;
 };
 
 export function matchExactUrl(
@@ -143,7 +143,7 @@ export function match(
     const match: MatchResult = {
       params: {},
       matchedPath: "",
-      currentPath: urlObject.pathname,
+      remainingPath: urlObject.pathname,
     };
 
     for (let i = 0; i < patternParts.length; i++) {
@@ -163,7 +163,7 @@ export function match(
       }
     }
 
-    match.currentPath = `/${pathnameParts
+    match.remainingPath = `/${pathnameParts
       .slice(patternParts.length)
       .join("/")}`;
 
