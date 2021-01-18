@@ -58,23 +58,6 @@ function Customers() {
 }
 ```
 
-## MatchResult
-
-The callback used with matchUrl and matchExactUrl is of the type given below:
-
-```ts
-type MatchResult = {
-  matchedPath: string;
-  params: { [key: string]: string };
-  remainingPath: string;
-};
-```
-
-- matchedPath refers to the part of the path that matched the pattern.
-- remainingPath refers to the part which follows the matched pattern.
-- params is an object containing captured parameters.
-
-
 ## Link
 
 The Link component creates an anchor tag which can be used to navigate to a certain url. The reason to not use regular anchor tags (A tags) is that they will refresh the page - while the Link component merely changes the url via pushState APIs.
@@ -101,6 +84,27 @@ function Home() {
   };
 }
 ```
+
+## MatchResult
+
+The callback used with matchUrl and matchExactUrl is of the type given below:
+
+```ts
+type MatchResult = {
+  matchedPath: string;
+  params: { [key: string]: string };
+  remainingPath: string;
+};
+```
+
+- matchedPath refers to the part of the path that matched the pattern.
+- remainingPath refers to the part which follows the matched pattern.
+- params is an object containing captured parameters.
+
+
+## A Complete Example
+
+Here's a more complete example.
 
 ```tsx
 import { mount } from "forgo";
