@@ -47,16 +47,20 @@ export type LinkProps = {
 };
 
 export function Link(props: LinkProps) {
-  return (
-    <a
-      style={props.style}
-      onClick={createClickHandler(props.href)}
-      href={props.href}
-      className={props.className}
-    >
-      {props.children}
-    </a>
-  );
+  return {
+    render(props: LinkProps) {
+      return (
+        <a
+          style={props.style}
+          onClick={createClickHandler(props.href)}
+          href={props.href}
+          className={props.className}
+        >
+          {props.children}
+        </a>
+      );
+    },
+  };
 }
 
 /*
