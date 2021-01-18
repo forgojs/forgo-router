@@ -4,7 +4,7 @@ import { rerender, ForgoRenderArgs, ForgoNode, ForgoElementArg } from "forgo";
   To be called when the url needs to be changed.
   You'd usually not call this directly; instead use the <Link /> component which will internally call this.
 */
-export async function navigateTo(url: string): Promise<void> {
+export function navigateTo(url: string) {
   window.history.pushState({}, "", url);
   updateRoute();
 }
@@ -12,15 +12,23 @@ export async function navigateTo(url: string): Promise<void> {
 /*
   Fixme - this is all messed up.
 */
-export async function goBack(steps = -1): Promise<void> {
+export function goBack(steps = -1) {
   if (window.history.length > 1) {
     window.history.go(steps);
     updateRoute();
   }
 }
 
-export async function updateRoute(): Promise<void> {
-  rerender(routerRenderArgs.element);
+/*
+  We have to re-render Router's parent.
+  So we go up on componentIndex
+*/
+export function updateRoute() {
+  const elem = {
+    ...routerRenderArgs.element,
+    componentIndex: routerRenderArgs.element.componentIndex - 1,
+  };
+  rerender(elem);
 }
 
 export type RouterProps = {

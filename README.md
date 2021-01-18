@@ -6,6 +6,7 @@ A simple router for Forgo. Just about 1KB gzipped.
 
 It's fairly straight forward to use:
 
+- Wrap your components with the Router component
 - matchExactUrl() does an exact match
 - matchUrl() just checks if the path starts with the specified pattern
 
@@ -14,16 +15,18 @@ Both functions take a callback as the second argument, which gets called if the 
 Here's an example:
 
 ```tsx
+import { Router, matchExactUrl, matchUrl } from "forgo-router";
+
 function App() {
   return {
     render() {
       return (
-        <div>
+        <Router>
           <Link href="/">Another Forgo App</Link>
           {matchExactUrl("/", () => <Home />) ||
             matchUrl("/customers", () => <Customers />) ||
             matchUrl("/about", () => <AboutPage />)}
-        </div>
+        </Router>
       );
     },
   };
