@@ -1,0 +1,8 @@
+{
+  "name": "forgo-router",
+  "version": "0.0.1",
+  "main": "./dist",
+  "dependencies": {
+    "forgo": "^0.0.15"
+  }
+}
