@@ -1,13 +1,5 @@
 import { rerender, ForgoRenderArgs, ForgoNode, ForgoElementArg } from "forgo";
 
-let globalState: RoutingState;
-
-/* Store */
-export type RoutingState = {
-  url: string;
-  hasLoaded: boolean;
-};
-
 /*
   To be called when the url needs to be changed.
   You'd usually not call this directly; instead use the <Link /> component which will internally call this.

@@ -1,8 +1,11 @@
 {
   "name": "forgo-router",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./dist",
   "dependencies": {
     "forgo": "^0.0.15"
+  },
+  "scripts": {
+    "build": "tsc"
   }
 }

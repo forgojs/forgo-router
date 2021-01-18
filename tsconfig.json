@@ -9,7 +9,7 @@
     "lib": ["ES2020", "DOM"],
     "sourceMap": true,
     "strict": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "jsxImportSource": "forgo",
   },
   "include": ["./src/**/*"]
