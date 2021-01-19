@@ -1,9 +1,9 @@
 {
   "name": "forgo-router",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "./dist",
   "dependencies": {
-    "forgo": "^0.0.19"
+    "forgo": "^0.0.20"
   },
   "scripts": {
     "build": "tsc"
