@@ -1,6 +1,6 @@
 {
   "name": "forgo-router",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "author": "Jeswin Kumar<jeswinpk@agilehead.com>",
   "repository": {
     "type": "git",
@@ -8,7 +8,7 @@
   },
   "main": "./dist",
   "dependencies": {
-    "forgo": "^0.0.42"
+    "forgo": "^0.0.43"
   },
   "scripts": {
     "build": "tsc"
