@@ -8,7 +8,7 @@
   },
   "main": "./dist",
   "dependencies": {
-    "forgo": "^0.0.48"
+    "forgo": "^0.0.50"
   },
   "scripts": {
     "build": "tsc"
