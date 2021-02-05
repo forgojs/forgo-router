@@ -28,7 +28,7 @@ function App() {
     render() {
       return (
         <Router>
-          <Link href="/">Another Forgo App</Link>
+          <Link href="/">Go to Home Page</Link>
           {matchExactUrl("/", () => <Home />) ||
             matchUrl("/customers", () => <Customers />) ||
             matchUrl("/about", () => <AboutPage />)}
