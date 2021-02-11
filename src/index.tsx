@@ -47,6 +47,7 @@ export function Router(props: RouterProps) {
 }
 
 export type LinkProps = {
+  key?: string;
   href: string;
   children?: ForgoNode[];
   style?: any;
@@ -58,6 +59,7 @@ export function Link(props: LinkProps) {
     render(props: LinkProps) {
       return (
         <a
+          key={props.key}
           style={props.style}
           onclick={createClickHandler(props.href)}
           href={props.href}
