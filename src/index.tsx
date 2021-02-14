@@ -63,7 +63,7 @@ export function Link(props: LinkProps) {
           style={props.style}
           onclick={createClickHandler(props.href)}
           href={props.href}
-          class={props.className}
+          className={props.className}
         >
           {props.children}
         </a>
