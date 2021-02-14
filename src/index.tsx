@@ -49,7 +49,7 @@ export function Router(props: RouterProps) {
 export type LinkProps = {
   key?: any;
   href: string;
-  children?: ForgoNode[];
+  children?: ForgoNode | ForgoNode[];
   style?: any;
   className?: string;
 };
