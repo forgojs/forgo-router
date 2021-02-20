@@ -9,7 +9,7 @@
   "main": "./dist",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "forgo": "^0.0.66"
+    "forgo": "^0.0.67"
   },
   "scripts": {
     "build": "tsc"
