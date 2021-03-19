@@ -33,11 +33,22 @@ export function updateRoute() {
 
 export type RouterProps = {
   children?: ForgoNode[];
+  skipHistoryEventRegistration?: boolean;
 };
 
 let routerRenderArgs: ForgoRenderArgs;
 
 export function Router(props: RouterProps) {
+  if (!props.skipHistoryEventRegistration) {
+    window.addEventListener("popstate", () => {
+      updateRoute();
+    });
+
+    window.addEventListener("load", () => {
+      updateRoute();
+    });
+  }
+
   return {
     render(props: RouterProps, args: ForgoRenderArgs) {
       routerRenderArgs = args;
