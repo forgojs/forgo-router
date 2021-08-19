@@ -1,6 +1,6 @@
 {
   "name": "forgo-router",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./src/index.tsx",
