@@ -8,8 +8,9 @@
     "lib": ["ES2020", "DOM"],
     "sourceMap": true,
     "strict": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "forgo",
+    "jsx": "react",
+    "jsxFactory": "forgo.h",
+    "jsxFragmentFactory": "forgo.Fragment"
   },
   "include": ["./src/**/*"]
 }

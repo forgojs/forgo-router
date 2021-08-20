@@ -1,3 +1,4 @@
+import * as forgo from "forgo";
 import { rerender, ForgoRenderArgs, ForgoNode, ForgoElementArg } from "forgo";
 
 /*
