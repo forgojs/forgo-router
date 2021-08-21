@@ -10,7 +10,7 @@
     "url": "https://github.com/forgojs/forgo-router"
   },
   "dependencies": {
-    "forgo": "^2.0.3"
+    "forgo": "^2.0.5"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
