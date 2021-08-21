@@ -1,9 +1,9 @@
 {
   "name": "forgo-router",
-  "version": "1.0.36",
+  "version": "1.0.37",
   "type": "module",
   "main": "./dist/index.js",
-  "types": "./dist/index.d.tsx",
+  "types": "./dist/index.d.ts",
   "author": "Jeswin Kumar<jeswinpk@agilehead.com>",
   "repository": {
     "type": "git",
