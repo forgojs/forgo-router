@@ -1,5 +1,6 @@
 import * as forgo from "forgo";
 import { rerender, ForgoRenderArgs, ForgoNode, ForgoElementArg } from "forgo";
+import type { JSX } from "forgo";
 
 /*
   To be called when the url needs to be changed.
@@ -58,26 +59,22 @@ export function Router(props: RouterProps) {
   };
 }
 
-export type LinkProps = {
-  key?: any;
+export interface LinkProps
+  // We deny the onclick attribute because we set our own click handler and
+  // don't presently support merging click handlers
+  extends Omit<JSX.HTMLAttributes<HTMLAnchorElement>, "onclick"> {
+  // Override HTMLAnchorElement's href attribute to be mandatory
   href: string;
+  key?: any;
   children?: ForgoNode | ForgoNode[];
-  style?: any;
-  className?: string;
-};
+}
 
-export function Link(props: LinkProps) {
+export function Link(_props: LinkProps) {
   return {
-    render(props: LinkProps) {
+    render({ children, ...props }: LinkProps) {
       return (
-        <a
-          key={props.key}
-          style={props.style}
-          onclick={createClickHandler(props.href)}
-          href={props.href}
-          className={props.className}
-        >
-          {props.children}
+        <a {...props} onclick={createClickHandler(props.href)}>
+          {children}
         </a>
       );
     },
