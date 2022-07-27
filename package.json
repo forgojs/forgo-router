@@ -1,6 +1,6 @@
 {
   "name": "forgo-router",
-  "version": "2.0.0-alpha.0",
+  "version": "1.2.0",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -10,7 +10,7 @@
     "url": "https://github.com/forgojs/forgo-router"
   },
   "peerDependencies": {
-    "forgo": "^4.0.0-alpha.0"
+    "forgo": "^3.2.0-beta.0"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",

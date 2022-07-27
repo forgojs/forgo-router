@@ -2,7 +2,7 @@ import * as forgo from "forgo";
 import { rerender, ForgoNode, Component } from "forgo";
 import type { JSX } from "forgo";
 
-import type { ForgoComponentCtor } from "forgo";
+import type { ForgoNewComponentCtor } from "forgo";
 
 /*
   To be called when the url needs to be changed.
@@ -42,7 +42,7 @@ export type RouterProps = {
 
 let component: Component;
 
-export const Router: ForgoComponentCtor<RouterProps> = (props) => {
+export const Router: ForgoNewComponentCtor<RouterProps> = (props) => {
   if (!props.skipHistoryEventRegistration) {
     window.addEventListener("popstate", () => {
       updateRoute();
@@ -71,7 +71,7 @@ export interface LinkProps
   children?: ForgoNode | ForgoNode[];
 }
 
-export const Link: ForgoComponentCtor<LinkProps> = () => {
+export const Link: ForgoNewComponentCtor<LinkProps> = () => {
   return new Component({
     render({ children, ...props }: LinkProps) {
       return (
