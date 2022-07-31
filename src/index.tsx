@@ -1,6 +1,8 @@
 import * as forgo from "forgo";
-import { rerender, ForgoRenderArgs, ForgoNode, ForgoElementArg } from "forgo";
+import { rerender, ForgoNode, Component } from "forgo";
 import type { JSX } from "forgo";
+
+import type { ForgoNewComponentCtor } from "forgo";
 
 /*
   To be called when the url needs to be changed.
@@ -27,8 +29,8 @@ export function goBack(steps = -1) {
 */
 export function updateRoute() {
   const elem = {
-    ...routerRenderArgs.element,
-    componentIndex: routerRenderArgs.element.componentIndex - 1,
+    ...component.__internal.element,
+    componentIndex: component.__internal.element.componentIndex - 1,
   };
   rerender(elem);
 }
@@ -38,9 +40,9 @@ export type RouterProps = {
   skipHistoryEventRegistration?: boolean;
 };
 
-let routerRenderArgs: ForgoRenderArgs;
+let component: Component;
 
-export function Router(props: RouterProps) {
+export const Router: ForgoNewComponentCtor<RouterProps> = (props) => {
   if (!props.skipHistoryEventRegistration) {
     window.addEventListener("popstate", () => {
       updateRoute();
@@ -51,13 +53,13 @@ export function Router(props: RouterProps) {
     });
   }
 
-  return {
-    render(props: RouterProps, args: ForgoRenderArgs) {
-      routerRenderArgs = args;
+  return new Component({
+    render(props, component_) {
+      component = component_;
       return <div>{props.children}</div>;
     },
-  };
-}
+  });
+};
 
 export interface LinkProps
   // We deny the onclick attribute because we set our own click handler and
@@ -69,8 +71,8 @@ export interface LinkProps
   children?: ForgoNode | ForgoNode[];
 }
 
-export function Link(_props: LinkProps) {
-  return {
+export const Link: ForgoNewComponentCtor<LinkProps> = () => {
+  return new Component({
     render({ children, ...props }: LinkProps) {
       return (
         <a {...props} onclick={createClickHandler(props.href)}>
@@ -78,8 +80,8 @@ export function Link(_props: LinkProps) {
         </a>
       );
     },
-  };
-}
+  });
+};
 
 /*
   Useful for navigating to a url when a link or a button is clicked.
