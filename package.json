@@ -1,6 +1,6 @@
 {
   "name": "forgo-router",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -10,11 +10,11 @@
     "url": "https://github.com/forgojs/forgo-router"
   },
   "peerDependencies": {
-    "forgo": "^3.2.0-beta.0"
+    "forgo": "^3.2.2"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
-    "typescript": "^4.6.3"
+    "typescript": "^4.8.3"
   },
   "scripts": {
     "clean": "rimraf ./dist",
