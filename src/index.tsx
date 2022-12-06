@@ -131,17 +131,15 @@ export function match(
 ): MatchResult | false {
   const url = window.location.href;
 
-  const lcaseUrl = url.toLowerCase();
-
   const fixedUrl = ["http://", "https://"].some((prefix) =>
-    lcaseUrl.startsWith(prefix)
+    url.startsWith(prefix)
   )
-    ? lcaseUrl
+    ? url
     : `${
         typeof window === "undefined"
           ? "http://localhost"
           : `${window.location.protocol}//${window.location.hostname}`
-      }${lcaseUrl.startsWith("/") ? lcaseUrl : `/${lcaseUrl}`}`;
+      }${url.startsWith("/") ? url : `/${url}`}`;
 
   const urlObject = new URL(fixedUrl);
 
