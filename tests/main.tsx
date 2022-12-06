@@ -4,8 +4,8 @@ import { Router, matchExactUrl, Link } from "../src/index.js";
 const App: forgo.ForgoNewComponentCtor = () => {
   return new forgo.Component({
     render() {
-      // TODO: The router doesn't accept all Forgo child types, such as strings
-      // and nulls
+      // TODO: The router doesn't accept all Forgo children types, such as
+      // strings and nulls
       return (
         <Router>
           <nav style="display: flex; flex-direction: column;">
