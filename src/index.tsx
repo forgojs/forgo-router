@@ -2,8 +2,6 @@ import * as forgo from "forgo";
 import { rerender, ForgoNode, Component } from "forgo";
 import type { JSX } from "forgo";
 
-import type { ForgoNewComponentCtor } from "forgo";
-
 /*
   To be called when the url needs to be changed.
   You'd usually not call this directly; instead use the <Link /> component which will internally call this.
@@ -36,13 +34,12 @@ export function updateRoute() {
 }
 
 export type RouterProps = {
-  children?: ForgoNode[];
   skipHistoryEventRegistration?: boolean;
 };
 
 let component: Component;
 
-export const Router: ForgoNewComponentCtor<RouterProps> = (props) => {
+export const Router = (props: RouterProps) => {
   if (!props.skipHistoryEventRegistration) {
     window.addEventListener("popstate", () => {
       updateRoute();
@@ -71,7 +68,7 @@ export interface LinkProps
   children?: ForgoNode | ForgoNode[];
 }
 
-export const Link: ForgoNewComponentCtor<LinkProps> = () => {
+export const Link = () => {
   return new Component({
     render({ children, ...props }: LinkProps) {
       return (
